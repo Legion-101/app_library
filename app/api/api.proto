@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package library;
+option go_package = ".";
+
+message authorSearchRequest{
+    string nameBook = 1;
+}
+
+message authorSearchResponse{
+    string nameAuthor = 1;
+    string midllenameAuthor = 2;
+    string lastnameAuthor = 3;
+}
+
+message bookSearchRequest{
+    string nameAuthor = 1;
+    string midllenameAuthor = 2;
+    string lastnameAuthor = 3;
+}
+
+message bookSearchResponse{
+    string nameBook = 1;
+}
+
+service app_library {
+    rpc authorSearch (authorSearchRequest) returns (authorSearchResponse);
+    rpc bookSearch (bookSearchRequest) returns (bookSearchResponse);    
+}
